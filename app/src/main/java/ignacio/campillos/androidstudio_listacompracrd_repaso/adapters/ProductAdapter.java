@@ -64,11 +64,36 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductA
                 confirmarComprado("SEGURO QUE LO QUIERES CAMBIAR?", producto).show();
             }
         });
+
+        holder.btnBorrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirmarBorrar("SEGURO QUE QUIERES BORRAR?",holder.getAdapterPosition()).show();
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return objects.size();
+    }
+
+    //HAY QUE PASARLE LA POSICION PARA BORRAR EL OBJETO
+    private AlertDialog confirmarBorrar(String titulo, int posicion){
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(titulo);
+        builder.setCancelable(false);
+
+        builder.setNegativeButton("CANCELAR", null);
+        builder.setPositiveButton("BORRAR", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                objects.remove(posicion);
+                notifyItemRemoved(posicion);
+            }
+        });
+
+        return builder.create();
     }
 
     private AlertDialog confirmarComprado(String titulo, Producto producto){

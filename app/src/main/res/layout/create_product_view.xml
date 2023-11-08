@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="10dp">
 
@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:ems="10"
+        android:hint="Nombre"
         android:inputType="text" />
 
     <LinearLayout
@@ -25,6 +26,7 @@
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:ems="10"
+            android:hint="Cantidad"
             android:inputType="number" />
 
         <EditText
@@ -34,13 +36,32 @@
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:ems="10"
+            android:hint="Precio"
             android:inputType="number" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnCrear_create_product_view"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Button" />
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnCancelar_create"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:text="CANCELAR" />
+
+        <Button
+            android:id="@+id/btnCrear_create"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:text="CREAR" />
+    </LinearLayout>
+
 </LinearLayout>
